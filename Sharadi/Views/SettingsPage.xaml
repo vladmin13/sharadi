@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:Sharadi.Resources;assembly=Sharadi"
+             x:Class="Sharadi.Views.SettingsPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+        <ScrollView>
+            <StackLayout>
+                <Grid RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="10, 0, 0, 0"
+                           Text="Количество слов"
+                           FontSize="Title"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="10, 0, 0, 0"
+                           Text="для достижения победы"
+                           TextColor="Gray"
+                           FontSize="Default"/>
+                                        
+                    <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Margin="0, 0, 10, 0"
+                           TextColor="{x:Static resources:Colors.ButtonColor}"
+                           Text="{Binding CountWords}"
+                           FontSize="Title"/>
+
+                    <Slider Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="2"
+                            Value="{Binding CountWords, Mode=TwoWay}"
+                            MinimumTrackColor="{x:Static resources:Colors.ButtonColor}"
+                            MaximumTrackColor="{x:Static resources:Colors.SeparationColor}"
+                            Maximum="150"
+                            Minimum="10"
+                            Margin="20, 0, 20, 0"
+                            ThumbColor="{x:Static resources:Colors.ButtonColor}"/>
+
+                    <StackLayout Grid.Row="3"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2"
+                                 BackgroundColor="{x:Static resources:Colors.SeparationColor}"/>
+                </Grid>
+                <Grid RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="10, 0, 0, 0"
+                           Text="Время раунда"
+                           FontSize="Title"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="10, 0, 0, 0"
+                           Text="продолжительность в секундах"
+                           TextColor="Gray"
+                           FontSize="Default"/>
+                                        
+                    <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Margin="0, 0, 10, 0"
+                           TextColor="{x:Static resources:Colors.ButtonColor}"
+                           Text="{Binding CountSeconds}"
+                           FontSize="Title"/>
+
+                    <Slider Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="2"
+                            Value="{Binding CountSeconds, Mode=TwoWay}"
+                            MinimumTrackColor="{x:Static resources:Colors.ButtonColor}"
+                            MaximumTrackColor="{x:Static resources:Colors.SeparationColor}"
+                            Maximum="120"
+                            Minimum="10"
+                            Margin="20, 0, 20, 0"
+                            ThumbColor="{x:Static resources:Colors.ButtonColor}"/>
+
+                    <StackLayout Grid.Row="3"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2"
+                                 BackgroundColor="{x:Static resources:Colors.SeparationColor}"/>
+                </Grid>
+                <Grid RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="10, 0, 0, 0"
+                           Text="Штраф за пропуск"
+                           FontSize="Title"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="10, 0, 0, 0"
+                           Text="каждое пропущенное слово снимает 1 очко"
+                           TextColor="Gray"
+                           FontSize="Default"/>
+                                        
+                    <Switch Grid.Column="1"
+                            Grid.RowSpan="3"
+                            Grid.Row="0"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 10, 0"
+                           IsToggled="{Binding IsFine, Mode=TwoWay}"
+                           OnColor="{x:Static resources:Colors.ButtonColor}"/>
+
+                    <StackLayout Grid.Row="2"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2"
+                                 BackgroundColor="{x:Static resources:Colors.SeparationColor}"/>
+                </Grid>
+                <Grid RowSpacing="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Grid.Column="0"
+                           Grid.Row="0"
+                           Margin="10, 0, 0, 0"
+                           Text="Звук в игре"
+                           FontSize="Title"/>
+
+                    <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Margin="10, 0, 0, 0"
+                           TextColor="Gray"
+                           Text="включить звуковой эффект"
+                           FontSize="Default"/>
+                                        
+                    <Switch Grid.Column="1"
+                            Grid.RowSpan="3"
+                            Grid.Row="0"
+                            VerticalOptions="Center"
+                            Margin="0, 0, 10, 0"
+                           IsToggled="{Binding IsFine, Mode=TwoWay}"
+                           OnColor="{x:Static resources:Colors.ButtonColor}"/>
+
+                    <StackLayout Grid.Row="2"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2"
+                                 BackgroundColor="{x:Static resources:Colors.SeparationColor}"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>            
+            <StackLayout BackgroundColor="{x:Static resources:Colors.BlueColor}"
+                         VerticalOptions="EndAndExpand">
+                <Button Text="Далее"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                    TextColor="{x:Static resources:Colors.ButtonTextColor}"
+                    Command="{Binding GoToSettingsCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

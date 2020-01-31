@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:resources="clr-namespace:Sharadi.Resources;assembly=Sharadi"
+             x:Class="Sharadi.Views.TeamsPage"
+             x:Name="root"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding Teams}"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="FillAndExpand"
+                              Padding="15">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="26"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   TextColor="{x:Static resources:Colors.TextColor}"
+                                   Text="{Binding Name}"/>
+
+                            <ImageButton Grid.Column="1"
+                                         Source="cross"
+                                         BackgroundColor="Transparent"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         HorizontalOptions="End"
+                                         Command="{Binding BindingContext.RemoveTeamCommand, Source={x:Reference Name=root}}"
+                                         CommandParameter="{Binding .}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                        <StackLayout BackgroundColor="{x:Static resources:Colors.ButtonColor}">
+                            <Button FontSize="25"
+                                    Text="+"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding BindingContext.AddTeamCommand, Source={x:Reference Name=root}}"
+                                    TextColor="{x:Static resources:Colors.ButtonTextColor}"/>
+                        </StackLayout>
+                </CollectionView.Footer>
+            </CollectionView>
+            <StackLayout BackgroundColor="{x:Static resources:Colors.BlueColor}"
+                         VerticalOptions="EndAndExpand">
+                <Button Text="Далее"
+                        FontAttributes="Bold"
+                        FontSize="Title"
+                        TextColor="{x:Static resources:Colors.ButtonTextColor}"
+                        Command="{Binding GoToSettingsCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

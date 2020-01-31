@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:resources="clr-namespace:Sharadi.Resources;assembly=Sharadi"
+             x:Class="Sharadi.Views.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <Grid VerticalOptions="EndAndExpand"
+              HorizontalOptions="Center"
+              Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Row="0"
+                    Padding="25, 5, 25, 5"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Command="{Binding NewGameCommand}"
+                    TextColor="{x:Static resources:Colors.ButtonTextColor}"
+                    BackgroundColor="{x:Static resources:Colors.ButtonColor}"
+                    Text="{x:Static resources:Strings.NewGame}"/>
+            
+            <Button Grid.Row="1"
+                    Padding="25, 5, 25, 5"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    TextColor="{x:Static resources:Colors.ButtonTextColor}"
+                    BackgroundColor="{x:Static resources:Colors.ButtonColor}"
+                    Text="{x:Static resources:Strings.Ruls}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
