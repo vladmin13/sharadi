@@ -3,6 +3,12 @@ using Xamarin.Forms;
 
 namespace Sharadi.Resources
 {
+    public static class FirebaseDatabase
+    {
+        public static string Url = "https://sharadi.firebaseio.com/";
+        public static string GroupsNameResource = "Groups";
+    }
+
     public static class Colors
     {
         public static Color ButtonColor = Color.Orange;
