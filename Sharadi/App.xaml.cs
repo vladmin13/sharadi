@@ -2,6 +2,7 @@
 using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Sharadi.Services;
 using Sharadi.ViewModels;
 using Sharadi.Views;
 using Xamarin.Forms;
@@ -29,6 +30,7 @@ namespace Sharadi
             containerRegistry.RegisterForNavigation<TeamsPage, TeamsPageViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
 
+            containerRegistry.RegisterSingleton<IDatabaseService, DatabaseService>();
         }
     }
 }
