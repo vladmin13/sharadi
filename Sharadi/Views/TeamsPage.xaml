@@ -9,6 +9,7 @@
         <StackLayout>
             <CollectionView ItemsSource="{Binding Teams}"
                             VerticalOptions="FillAndExpand"
+                            SelectionChangedCommand="{Binding RenameTeamCommand}"
                             HorizontalOptions="FillAndExpand">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -25,6 +26,7 @@
                                    Text="{Binding Name}"/>
 
                             <ImageButton Grid.Column="1"
+                                         IsVisible="{Binding BindingContext.IsRemovable, Source={x:Reference Name=root} }"
                                          Source="cross"
                                          BackgroundColor="Transparent"
                                          HeightRequest="25"
@@ -38,7 +40,7 @@
                 <CollectionView.Footer>
                         <StackLayout BackgroundColor="{x:Static resources:Colors.ButtonColor}">
                             <Button FontSize="25"
-                                    Text="+"
+                                    Text="{x:Static resources:Strings.Plus}"
                                     FontAttributes="Bold"
                                     HorizontalOptions="FillAndExpand"
                                     BackgroundColor="Transparent"
@@ -49,7 +51,7 @@
             </CollectionView>
             <StackLayout BackgroundColor="{x:Static resources:Colors.BlueColor}"
                          VerticalOptions="EndAndExpand">
-                <Button Text="Далее"
+                <Button Text="{x:Static resources:Strings.Next}"
                         FontAttributes="Bold"
                         FontSize="Title"
                         TextColor="{x:Static resources:Colors.ButtonTextColor}"

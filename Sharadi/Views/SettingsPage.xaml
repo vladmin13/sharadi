@@ -23,13 +23,13 @@
                     <Label Grid.Column="0"
                            Grid.Row="0"
                            Margin="10, 0, 0, 0"
-                           Text="Количество слов"
+                           Text="{x:Static resources:Strings.CountWords}"
                            FontSize="Title"/>
 
                     <Label Grid.Column="0"
                            Grid.Row="1"
                            Margin="10, 0, 0, 0"
-                           Text="для достижения победы"
+                           Text="{x:Static resources:Strings.ForWin}"
                            TextColor="Gray"
                            FontSize="Default"/>
                                         
@@ -71,13 +71,13 @@
                     <Label Grid.Column="0"
                            Grid.Row="0"
                            Margin="10, 0, 0, 0"
-                           Text="Время раунда"
+                           Text="{x:Static resources:Strings.RoundTime}"
                            FontSize="Title"/>
 
                     <Label Grid.Column="0"
                            Grid.Row="1"
                            Margin="10, 0, 0, 0"
-                           Text="продолжительность в секундах"
+                           Text="{x:Static resources:Strings.Duration}"
                            TextColor="Gray"
                            FontSize="Default"/>
                                         
@@ -118,13 +118,13 @@
                     <Label Grid.Column="0"
                            Grid.Row="0"
                            Margin="10, 0, 0, 0"
-                           Text="Штраф за пропуск"
+                           Text="{x:Static resources:Strings.SkipFine}"
                            FontSize="Title"/>
 
                     <Label Grid.Column="0"
                            Grid.Row="1"
                            Margin="10, 0, 0, 0"
-                           Text="каждое пропущенное слово снимает 1 очко"
+                           Text="{x:Static resources:Strings.SkipFineComment}"
                            TextColor="Gray"
                            FontSize="Default"/>
                                         
@@ -155,14 +155,14 @@
                     <Label Grid.Column="0"
                            Grid.Row="0"
                            Margin="10, 0, 0, 0"
-                           Text="Звук в игре"
+                           Text="{x:Static resources:Strings.SoundInGame}"
                            FontSize="Title"/>
 
                     <Label Grid.Column="0"
                            Grid.Row="1"
                            Margin="10, 0, 0, 0"
                            TextColor="Gray"
-                           Text="включить звуковой эффект"
+                           Text="{x:Static resources:Strings.SoundDescription}"
                            FontSize="Default"/>
                                         
                     <Switch Grid.Column="1"
@@ -170,7 +170,7 @@
                             Grid.Row="0"
                             VerticalOptions="Center"
                             Margin="0, 0, 10, 0"
-                           IsToggled="{Binding IsFine, Mode=TwoWay}"
+                           IsToggled="{Binding IsSound, Mode=TwoWay}"
                            OnColor="{x:Static resources:Colors.ButtonColor}"/>
 
                     <StackLayout Grid.Row="2"
@@ -182,7 +182,7 @@
         </ScrollView>            
             <StackLayout BackgroundColor="{x:Static resources:Colors.BlueColor}"
                          VerticalOptions="EndAndExpand">
-                <Button Text="Далее"
+                <Button Text="{x:Static resources:Strings.Next}"
                         FontAttributes="Bold"
                         FontSize="Title"
                     TextColor="{x:Static resources:Colors.ButtonTextColor}"

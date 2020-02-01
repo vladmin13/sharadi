@@ -1,5 +1,6 @@
 ﻿using Prism.Navigation;
 
+
 namespace Sharadi.ViewModels
 {
     public class SettingsPageViewModel : ViewModelBase
@@ -37,6 +38,11 @@ namespace Sharadi.ViewModels
         {
             get => isSound;
             set => SetProperty(ref isSound, value);
+        }
+
+        private async void GoToCategoryes()
+        {
+            //await NavigationService.NavigateAsync(nameof(SettingsPage), new NavigationParameters() { { Params.Teams, Teams.ToList() } });
         }
     }
 }

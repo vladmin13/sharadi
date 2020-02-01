@@ -9,6 +9,7 @@ using Sharadi.Resources;
 using Sharadi.Views;
 using Xamarin.Forms;
 
+
 namespace Sharadi.ViewModels
 {
     public class TeamsPageViewModel : ViewModelBase
@@ -23,12 +24,18 @@ namespace Sharadi.ViewModels
         public TeamsPageViewModel(INavigationService navigationService)
             :base(navigationService)
         {
-            Teams = new ObservableCollection<Team>() { new Team { Name = "First"}, new Team { Name = "Second" } };
-
+            Teams = new ObservableCollection<Team>();
+            for (int i = 0; i < 2; i++) AddTeam();                
             Title = Strings.Teams;
+            Teams.CollectionChanged += UpdateList;
             AddTeamCommand = new Command(AddTeam);
             RemoveTeamCommand = new Command(RemoveTeam);
             GoToSettingsCommand = new Command(GoToSettings);
+        }
+
+        private void UpdateList(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            RaisePropertyChanged(nameof(IsRemovable));
         }
 
         public ICommand RemoveTeamCommand
@@ -36,6 +43,8 @@ namespace Sharadi.ViewModels
             get => removeTeamCommand;
             set => SetProperty(ref removeTeamCommand, value);
         }
+
+        public bool IsRemovable => Teams.Count > 2;
 
         public ICommand AddTeamCommand
         {
@@ -63,7 +72,13 @@ namespace Sharadi.ViewModels
 
         private void AddTeam()
         {
-            Teams.Add(new Team { Name = $"Team {Teams.Count + 1}" });
+            int i = 1;
+            Team NewTeam;
+            do
+            {
+                NewTeam = new Team { Name = $"{Strings.Team} {i++}" };
+            } while (Teams.Contains(NewTeam));
+            Teams.Add( NewTeam );
         }
 
         private void RemoveTeam(object team)

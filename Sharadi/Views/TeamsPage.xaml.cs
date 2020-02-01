@@ -13,7 +13,7 @@ namespace Sharadi.Views
         }
 
 
-         void click(object sender, EventArgs args)
+        void click(object sender, EventArgs args)
         {
 
         }
