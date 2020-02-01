@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:Sharadi.Converters;assembly=Sharadi"
+             mc:Ignorable="d"
+             Title="Категории"
+             x:Class="Sharadi.Views.CategoriesPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:Base64toImageConverter x:Key="base64toImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView x:Name="CollectionView" 
+                            ItemsSource="{Binding Categories}"
+                            SelectionMode="Single"
+                            SelectionChangedCommand="{Binding SelectCommand}"
+                            SelectionChangedCommandParameter="{Binding Source={x:Reference Name=CollectionView}, Path=SelectedItem}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Image BackgroundColor="AntiqueWhite"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   Aspect="AspectFill"
+                                   Grid.RowSpan="4"
+                                   Source="{Binding Background, Converter={StaticResource base64toImage}}"/>
+
+                            <Label Grid.Row="0" 
+                                   Padding="15, 5, 0, 0"
+                                   FontAttributes="Bold"
+                                   TextColor="DarkOrange"
+                                   FontSize="Title"
+                                   Text="{Binding Name}"/>
+
+                            <Label Grid.Row="1" 
+                                   Padding="15, 0, 0, 0"
+                                   TextColor="Black"
+                                   Text="{Binding Level}"/>
+
+                            <Label Grid.Row="3" 
+                                   Padding="15, 0, 0, 10"
+                                   TextColor="DarkSlateGray"
+                                   FontSize="Default"
+                                   Text="{Binding Description}"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
