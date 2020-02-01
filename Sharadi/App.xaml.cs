@@ -29,6 +29,7 @@ namespace Sharadi
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TeamsPage, TeamsPageViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
+            containerRegistry.RegisterForNavigation<CategoriesPage, CategoriesPageViewModel>();
 
             containerRegistry.RegisterSingleton<IDatabaseService, DatabaseService>();
         }

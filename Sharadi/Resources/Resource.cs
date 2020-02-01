@@ -6,7 +6,7 @@ namespace Sharadi.Resources
     public static class FirebaseDatabase
     {
         public static string Url = "https://sharadi.firebaseio.com/";
-        public static string GroupsNameResource = "Groups";
+        public static string CategoriesNameResource = "Categories";
     }
 
     public static class Colors

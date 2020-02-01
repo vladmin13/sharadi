@@ -2,9 +2,10 @@
 
 namespace Sharadi.Model
 {
-    public class Group
+    public class Category
     {
-        public int Id { get; set; }
+        [JsonIgnore]
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

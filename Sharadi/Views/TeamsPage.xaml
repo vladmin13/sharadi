@@ -52,6 +52,7 @@
                 <Button Text="Далее"
                         FontAttributes="Bold"
                         FontSize="Title"
+                        BackgroundColor="Transparent"
                         TextColor="{x:Static resources:Colors.ButtonTextColor}"
                         Command="{Binding GoToSettingsCommand}"/>
             </StackLayout>

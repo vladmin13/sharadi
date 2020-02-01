@@ -185,8 +185,9 @@
                 <Button Text="Далее"
                         FontAttributes="Bold"
                         FontSize="Title"
-                    TextColor="{x:Static resources:Colors.ButtonTextColor}"
-                    Command="{Binding GoToSettingsCommand}"/>
+                        BackgroundColor="Transparent"
+                        TextColor="{x:Static resources:Colors.ButtonTextColor}"
+                        Command="{Binding GoToCategoriesCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

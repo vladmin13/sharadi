@@ -6,6 +6,6 @@ namespace Sharadi.Services
 {
     public interface IDatabaseService
     {
-        Task<List<Group>> GetGroups();
+        Task<List<Category>> GetCategories();
     }
 }

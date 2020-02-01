@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Sharadi.Views
 {
@@ -10,12 +7,6 @@ namespace Sharadi.Views
         public TeamsPage()
         {
             InitializeComponent();
-        }
-
-
-         void click(object sender, EventArgs args)
-        {
-
         }
     }
 }

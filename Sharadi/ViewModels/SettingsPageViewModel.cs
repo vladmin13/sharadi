@@ -1,4 +1,7 @@
-﻿using Prism.Navigation;
+﻿using System.Windows.Input;
+using Prism.Navigation;
+using Sharadi.Views;
+using Xamarin.Forms;
 
 namespace Sharadi.ViewModels
 {
@@ -8,11 +11,18 @@ namespace Sharadi.ViewModels
         private int countSeconds = 60;
         private bool isFine;
         private bool isSound;
+        private ICommand goToCategoriesCommand;
 
         public SettingsPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+            GoToCategoriesCommand = new Command(GoToCategories);
+        }
 
+        public ICommand GoToCategoriesCommand
+        {
+            get => goToCategoriesCommand;
+            set => SetProperty(ref goToCategoriesCommand, value);
         }
 
         public int CountWords
@@ -38,6 +48,10 @@ namespace Sharadi.ViewModels
             get => isSound;
             set => SetProperty(ref isSound, value);
         }
+
+        private async void GoToCategories()
+        {
+            await NavigationService.NavigateAsync(nameof(CategoriesPage));
+        }
     }
 }
-
