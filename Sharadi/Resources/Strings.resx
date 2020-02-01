@@ -129,6 +129,9 @@
   <data name="NewGame" xml:space="preserve">
     <value>Новая игра</value>
   </data>
+  <data name="NewTeamName" xml:space="preserve">
+    <value>Введите новое название команды</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
   </data>

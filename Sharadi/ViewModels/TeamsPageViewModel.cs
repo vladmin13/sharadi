@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Prism.Navigation;
 using Sharadi.Model;
 using Sharadi.Resources;
+using Sharadi.Services;
 using Sharadi.Views;
 using Xamarin.Forms;
-
 
 namespace Sharadi.ViewModels
 {
     public class TeamsPageViewModel : ViewModelBase
     {
+        private readonly IDialogService dialogService;
+
         private ObservableCollection<Team> teams;
         private string title;
+        private ICommand renameTeamCommand;
         private ICommand removeTeamCommand;
         private ICommand addTeamCommand;
         private ICommand goToSettingsCommand;
 
-
-        public TeamsPageViewModel(INavigationService navigationService)
+        public TeamsPageViewModel(INavigationService navigationService, IDialogService dialogService)
             :base(navigationService)
         {
             Teams = new ObservableCollection<Team>();
@@ -30,7 +30,9 @@ namespace Sharadi.ViewModels
             Teams.CollectionChanged += UpdateList;
             AddTeamCommand = new Command(AddTeam);
             RemoveTeamCommand = new Command(RemoveTeam);
+            RenameTeamCommand = new Command(RenameTeam);
             GoToSettingsCommand = new Command(GoToSettings);
+            this.dialogService = dialogService; 
         }
 
         private void UpdateList(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -42,6 +44,11 @@ namespace Sharadi.ViewModels
         {
             get => removeTeamCommand;
             set => SetProperty(ref removeTeamCommand, value);
+        }
+        public ICommand RenameTeamCommand
+        {
+            get => renameTeamCommand;
+            set => SetProperty(ref renameTeamCommand, value);
         }
 
         public bool IsRemovable => Teams.Count > 2;
@@ -84,6 +91,12 @@ namespace Sharadi.ViewModels
         private void RemoveTeam(object team)
         {
             Teams.Remove((Team)team);
+        }
+        private async void RenameTeam()
+        {
+            int selected = 0;
+            string resoult = await dialogService.DisplayPrompt(Teams[selected].Name, Strings.NewTeamName);
+            if (resoult != null && resoult.Length > 0) Teams[selected].Name = resoult;
         }
 
         private async void GoToSettings()
